@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <title>House loan Eligibility Predictor</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="row my-5">
+      <div class="col-md-6 offset-md-3">
+        <div class="card">
+          <div class="card-header">
+            <h4>House loan Eligibility Predictor</h4>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title" style="color: Goldenrod;">{{ prediction_text }}</h3>
+            <h6 class="card-title">Please enter all the details in order to check your home loan eligibility</h6>
+            <div class="row mt-2">
+              <form class="ml-5" action="{{ url_for('predict')}}" method="post">
+                <div class="form-group row">
+                  <label for="gender" class="col-6 col-form-label">Gender</label>
+                  <div class="col-6">
+                    <select id="gender" name="gender" class="custom-select" required="required">
+                      <option value="1">Male</option>
+                      <option value="0">Female</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="married" class="col-6 col-form-label">Married</label>
+                  <div class="col-6">
+                    <select id="married" name="married" class="custom-select" required="required">
+                      <option value="1">Yes</option>
+                      <option value="0">No</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="dependents" class="col-6 col-form-label">Dependents</label>
+                  <div class="col-6">
+                    <input id="dependents" name="dependents" type="text" class="form-control" required="required">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="education" class="col-6 col-form-label">Education</label>
+                  <div class="col-6">
+                    <select id="education" name="education" class="custom-select" required="required">
+                      <option value="0">Graduate</option>
+                      <option value="1">Non Graduate</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="self_employed" class="col-6 col-form-label">Self Employed</label>
+                  <div class="col-6">
+                    <select id="self_employed" name="self_employed" class="custom-select" required="required">
+                      <option value="1">Yes</option>
+                      <option value="0">No</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="applicant_income" class="col-6 col-form-label">Applicant Income ($)</label>
+                  <div class="col-6">
+                    <input id="applicant_income" name="applicant_income" type="text" class="form-control"
+                      required="required">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="coapplicant_income" class="col-6 col-form-label">Coapplicant Income ($)</label>
+                  <div class="col-6">
+                    <input id="coapplicant_income" name="coapplicant_income" type="text" class="form-control"
+                      required="required">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="loan_amount" class="col-6 col-form-label">Loan amount in thousands ($)</label>
+                  <div class="col-6">
+                    <input id="loan_amount" name="loan_amount" type="text" class="form-control" required="required">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="loan_term" class="col-6 col-form-label">Loan term (in months)</label>
+                  <div class="col-6">
+                    <input id="loan_term" name="loan_term" type="text" class="form-control" required="required">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="credit_history" class="col-6 col-form-label">Credit History</label>
+                  <div class="col-6">
+                    <select id="credit_history" name="credit_history" class="custom-select">
+                      <option value="1">Yes</option>
+                      <option value="0">No</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="property_area" class="col-6 col-form-label">Property Area</label>
+                  <div class="col-6">
+                    <select id="property_area" name="property_area" class="custom-select">
+                      <option value="0">Rural</option>
+                      <option value="1">Semi Urban</option>
+                      <option value="2">Urban</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="offset-6 col-6">
+                    <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="row">
+              <div class="mx-auto mt-4">
+                <a href="{{ url_for('logout') }}" class="btn btn-primary">Logout</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
